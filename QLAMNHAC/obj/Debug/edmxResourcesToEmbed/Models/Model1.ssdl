@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="QLAMNHACVNModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Baihat">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="tenBH" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="nhacS" Type="int" Nullable="false" />
+    <Property Name="theL" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Nhacsi">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="tenNS" Type="nvarchar" MaxLength="50" />
+    <Property Name="namS" Type="date" Nullable="false" />
+    <Property Name="queQ" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Theloai">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="tenTL" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="mota" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'QLAMNHACVN.dbo.thongtinnhac' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="thongtinnhac">
+    <Key>
+      <PropertyRef Name="tenBH" />
+      <PropertyRef Name="tenTL" />
+    </Key>
+    <Property Name="tenBH" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="tenNS" Type="nvarchar" MaxLength="50" />
+    <Property Name="tenTL" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Baihat_NhacS">
+    <End Role="Nhacsi" Type="Self.Nhacsi" Multiplicity="1" />
+    <End Role="Baihat" Type="Self.Baihat" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Nhacsi">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Baihat">
+        <PropertyRef Name="nhacS" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Baihat_Theloai">
+    <End Role="Theloai" Type="Self.Theloai" Multiplicity="1" />
+    <End Role="Baihat" Type="Self.Baihat" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Theloai">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Baihat">
+        <PropertyRef Name="theL" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="QLAMNHACVNModelStoreContainer">
+    <EntitySet Name="Baihat" EntityType="Self.Baihat" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Nhacsi" EntityType="Self.Nhacsi" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Theloai" EntityType="Self.Theloai" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="thongtinnhac" EntityType="Self.thongtinnhac" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [thongtinnhac].[tenBH] AS [tenBH], 
+    [thongtinnhac].[tenNS] AS [tenNS], 
+    [thongtinnhac].[tenTL] AS [tenTL]
+    FROM [dbo].[thongtinnhac] AS [thongtinnhac]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK_Baihat_NhacS" Association="Self.FK_Baihat_NhacS">
+      <End Role="Nhacsi" EntitySet="Nhacsi" />
+      <End Role="Baihat" EntitySet="Baihat" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Baihat_Theloai" Association="Self.FK_Baihat_Theloai">
+      <End Role="Theloai" EntitySet="Theloai" />
+      <End Role="Baihat" EntitySet="Baihat" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

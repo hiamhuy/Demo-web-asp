@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="QLAMNHACVNModelStoreContainer" CdmEntityContainer="QLAMNHACVNEntities2">
+    <EntitySetMapping Name="Baihat">
+      <EntityTypeMapping TypeName="QLAMNHACVNModel.Baihat">
+        <MappingFragment StoreEntitySet="Baihat">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="tenBH" ColumnName="tenBH" />
+          <ScalarProperty Name="nhacS" ColumnName="nhacS" />
+          <ScalarProperty Name="theL" ColumnName="theL" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Nhacsi">
+      <EntityTypeMapping TypeName="QLAMNHACVNModel.Nhacsi">
+        <MappingFragment StoreEntitySet="Nhacsi">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="tenNS" ColumnName="tenNS" />
+          <ScalarProperty Name="namS" ColumnName="namS" />
+          <ScalarProperty Name="queQ" ColumnName="queQ" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Theloai">
+      <EntityTypeMapping TypeName="QLAMNHACVNModel.Theloai">
+        <MappingFragment StoreEntitySet="Theloai">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="tenTL" ColumnName="tenTL" />
+          <ScalarProperty Name="mota" ColumnName="mota" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="thongtinnhac">
+      <EntityTypeMapping TypeName="QLAMNHACVNModel.thongtinnhac">
+        <MappingFragment StoreEntitySet="thongtinnhac">
+          <ScalarProperty Name="tenBH" ColumnName="tenBH" />
+          <ScalarProperty Name="tenNS" ColumnName="tenNS" />
+          <ScalarProperty Name="tenTL" ColumnName="tenTL" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

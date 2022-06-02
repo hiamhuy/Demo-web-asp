@@ -1,0 +1,31 @@
+﻿@model QLAMNHAC.Models.Theloai
+@{
+    ViewBag.Title = "Them the loai";
+    Layout = "~/Views/Shared/layout.cshtml";
+}
+
+<h2 class="text1" style="text-align:center">THÊM THỂ LOẠI NHẠC</h2>
+@if (TempData["ThongBao"] != null)
+{
+    <script type="text/javascript" language="javascript" charset="UTF-8">
+       alert("@TempData["ThongBao"]");
+    </script>
+}
+
+@using (Html.BeginForm("Create", "TheLoai"))
+{
+    <div style="text-align:center">
+
+        <font color="white">
+            <p>Tên thể loại:  @Html.EditorFor(Model => Model.tenTL)</p>
+            <br />
+            <p>Mô tả :&ensp;&emsp;&emsp;   @Html.EditorFor(Model => Model.mota) </p>
+        </font>
+        <br />
+        <input type="submit" value="Thêm" />
+
+    </div>
+
+}
+
+

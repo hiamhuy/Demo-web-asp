@@ -1,0 +1,59 @@
+﻿@model QLAMNHAC.Models.Baihat
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/layout.cshtml";
+}
+
+<h2>Thêm Bài Hát</h2>
+@if (TempData["ThongBao"] != null)
+{
+    <script language="javascript">
+       alert("@TempData["ThongBao"]");
+    </script>
+}
+<div class="wrap">
+    @using (Html.BeginForm("add", "DSBH", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        <table class="table">
+            <tr>
+                <td>
+                    Tên Bài Hát:
+                </td>
+                <td>
+                    <p>@Html.EditorFor(model => model.tenBH)</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    Nhạc Sĩ
+                </td>
+                <td>
+                    <p>
+                        @Html.DropDownList("nhacS", ViewBag.data as SelectList, "Chọn nhạc sĩ", new { @class = "form-control" })
+
+                    </p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    Thể Loại:
+                </td>
+                <td>
+                    <p>
+                        @Html.DropDownList("theL", ViewBag.data as SelectList, "Chọn thể loại", new { @class = "form-control" })
+
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <input type="submit" value="Thêm mới" />
+                </td>
+            </tr>
+        </table>
+
+    }
+</div>

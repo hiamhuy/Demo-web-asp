@@ -1,0 +1,50 @@
+﻿@model IEnumerable<QLAMNHAC.Models.thongtinnhac>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/layout.cshtml";
+}
+
+<h2 class="text1" style="text-align:center">Danh sách bài hát</h2>
+@using (Html.BeginForm("Index", "DSBH", FormMethod.Get))
+{
+    <div class="wrap-left">
+        <div class="search-group">
+            @Html.TextBox("search")<input type="submit" value="Tìm Kiếm" />
+        </div>
+    </div>
+}
+<div class="table-wrapper">
+    <table class="fl-table">
+        <thead>
+            <tr>
+                <th>Tên Bài Hát</th>
+                <th>Ca Sĩ</th>
+                <th>Thể Loại</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model.Count() == 0)
+            {
+                <tr>
+                    <td>Không Có Thông Tin</td>
+                </tr>
+            }
+            else
+            {
+               foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.tenBH</td>
+                        <td>@item.tenNS</td>
+                        <td>@item.tenTL</td>
+                        <td>
+                            Sửa |
+                            Xoá
+                        </td>
+                    </tr>
+                }
+            }
+    </table>
+</div>
+
+

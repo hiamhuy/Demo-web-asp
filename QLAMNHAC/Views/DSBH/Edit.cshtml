@@ -1,0 +1,56 @@
+﻿@model QLAMNHAC.Models.Baihat
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/layout.cshtml";
+}
+
+<h2>Sửa Thông Tin Bài Hát</h2>
+@if (TempData["ThongBao"] != null)
+{
+    <script language="javascript">
+       alert("@TempData["ThongBao"]");
+    </script>
+}
+<div class="wrap">
+    @using (Html.BeginForm("sua", "DSBH"))
+    {
+        <table class="table">
+            <tr>
+                <td> @Html.HiddenFor(model => model.Id)</td>
+            </tr>
+            <tr>
+                <td>
+                    Tên Bài Hát:
+                </td>
+                <td> @Html.EditorFor(model => model.tenBH)</td>
+            </tr>
+            <tr>
+                <td>
+                    Tên Nhạc sĩ:
+                </td>
+                <td>
+                    @Html.DropDownList("nhacS", ViewBag.data as SelectList, Model.Nhacsi.tenNS, new { @class = "form-control" })
+                </td>
+
+            </tr>
+
+            <tr>
+                <td>
+                    Thể Loại:
+                </td>
+                <td>
+                    @Html.DropDownList("theL", ViewBag.data as SelectList, Model.Theloai.tenTL, new { @class = "form-control" })
+                </td>
+            </tr>
+
+            <tr>
+                <td></td>
+                <td>
+                    <input type="submit" value="Cập nhật" />
+                </td>
+
+            </tr>
+
+        </table>
+    }
+</div>

@@ -1,0 +1,106 @@
+﻿
+@{
+    ViewBag.Title = "layout";
+}
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Trang Chủ </title>
+    <link href="~/css/style.css" rel="stylesheet" type="text/css" media="all" />
+    <link href='//fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="~/css/responsiveslides.css">
+    <script src="~/js/jquery.min.js"></script>
+    <script src="~/js/responsiveslides.min.js"></script>
+
+</head>
+<body>
+    <!---start-wrap--->
+    <div class="wrap">
+        <!---start-header--->
+
+        <div class="sub-header">
+            <div class="logo">
+                <a href="@Url.Action("Index","Home")"> <img src="../../images/logo.png" title="logo" /></a>
+
+            </div>
+            <div class="clear"> </div>
+        </div>
+        <div class="clear"> </div>
+        <div class="top-nav">
+            <ul>
+                <li> @Html.ActionLink("Trang Chủ", "Index", "Home")</li>
+                <li> @Html.ActionLink("Danh Sách Bài Hát", "Index", "DSBH")</li>
+                <li> @Html.ActionLink("Nhạc Sĩ", "Index", "NhacSi")</li>
+                <li> @Html.ActionLink("Thể Loại", "Index", "TheLoai")</li>
+
+            </ul>
+        </div>
+        <hr width="100%"
+            color="#dc3264"
+            align="mid"
+            size="2">
+        <div class="clear"> </div>
+        <!---end-top-header--->
+        <!---End-header--->
+    </div>
+    @RenderBody()
+    <div class="clear"> </div>
+    <div class="footer">
+        <div class="wrap">
+            <div class="section group">
+                <div class="col_1_of_4 span_1_of_4">
+                    <h3>Thông Tin</h3>
+                    <ul>
+                        <li><a href="#">Về Chúng Tôi</a></li>
+                        <li><a href="#">Nguyễn Danh Tú</a></li>
+                        <li><a href="#">Hà Đức Huy</a></li>
+                        <li><a href="#">Lâm Hồng Khuyến</a></li>
+                        <li><a href="#">Triệu Minh Đức</a></li>
+                        <li><a href="#">Nguyễn Việt</a></li>
+                    </ul>
+                </div>
+                <div class="col_1_of_4 span_1_of_4">
+                    <h3>Những Chức Năng</h3>
+                    <ul>
+                        <li><a href="#">Thêm</a></li>
+                        <li><a href="#">Sửa </a></li>
+                        <li><a href="#">Xoá</a></li>
+                        <li><a href="#">Tìm Kiếm</a></li>
+                        <li><a href="#">Hiển Thị</a></li>
+                    </ul>
+                </div>
+                <div class="col_1_of_4 span_1_of_4">
+                    <h3>Tài Khoản</h3>
+                    <ul>
+                        <li><a href="#">Tài Khoản của Bạn</a></li>
+                        <li><a href="#">Thông Tin Cá Nhân</a></li>
+                        <li><a href="#">Tác Giả</a></li>
+                        <li><a href="#">Thể loại</a></li>
+
+                    </ul>
+                </div>
+                <div class="col_1_of_4 span_1_of_4 footer-lastgrid">
+                    <h3>Phương Thức Liên Hệ</h3>
+                    <ul>
+                        <li><a href="#"><img src="../../images/facebook.png" title="facebook" /></a></li>
+                        <li><a href="#"><img src="../../images/twitter.png" title="Twiiter" /></a></li>
+                        <li><a href="#"><img src="../../images/rss.png" title="Rss" /></a></li>
+                        <li><a href="#"><img src="../../images/gpluse.png" title="Google+" /></a></li>
+                    </ul>
+                </div>
+                    <div class="col_1_of_4 span_1_of_4 " >
+                        <p>&copy; 2021 Độc Quyền </p>
+                    </div>
+            </div>
+        </div>
+    </div>
+    <!---End-wrap--->
+</body>
+</html>
+
+

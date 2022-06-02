@@ -1,0 +1,29 @@
+﻿
+@{
+    ViewBag.Title = "sua";
+    Layout = "~/Views/Shared/layout.cshtml";
+}
+@model QLAMNHAC.Models.Theloai
+
+<h2 class="text1" style="text-align:center">SỬA THỂ LOẠI NHẠC</h2>
+@if (TempData["ThongBao"] != null)
+{
+    <script language="javascript">
+       alert("@TempData["ThongBao"]");
+    </script>
+}
+
+@using (Html.BeginForm("edit", "TheLoai"))
+{
+    <div style="text-align:center">
+        @Html.HiddenFor(model => model.Id)
+        <font color="white">
+            <p>Tên thể loại:  @Html.EditorFor(Model => Model.tenTL)</p>
+            <br />
+            <p>Mô tả :&ensp;&emsp;&emsp;   @Html.EditorFor(Model => Model.mota) </p>
+        </font>
+        <br />
+        <input type="submit" value="Cập nhật" />
+
+    </div>
+}

@@ -1,0 +1,55 @@
+﻿@model IEnumerable<QLAMNHAC.Models.Baihat>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/layout.cshtml";
+}
+
+<h2 class="text1" style="text-align:center">Danh sách bài hát</h2>
+@if (TempData["ThongBao"] != null)
+{
+    <script language="javascript">
+       alert("@TempData["ThongBao"]");
+    </script>
+}
+@using (Html.BeginForm("Search", "DSBH", FormMethod.Get))
+{
+    <div class="wrap-left">
+        <div class="search-group">
+            @Html.TextBox("search")<input type="submit" value="Tìm Kiếm" />
+        </div>
+        <h3 class="wrap-right"><a href="/DSBH/Create" class="text">Thêm bài hát</a></h3>
+    </div>
+}
+<div class="table-wrapper">
+    <table class="fl-table">
+        <thead>
+            <tr>
+                @*<a href="~/Views/DSBH/Index.cshtml"></a>*@
+                <th>Tên Bài Hát</th>
+                <th>Ca Sĩ</th>
+                <th>Thể Loại</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.tenBH)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Nhacsi.tenNS)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Theloai.tenTL)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Sửa", "Edit", new { id = item.Id }) |
+
+                        @Html.ActionLink("Xoá", "Delete", new { id = item.Id })
+                    </td>
+                </tr>
+            }
+    </table>
+</div>

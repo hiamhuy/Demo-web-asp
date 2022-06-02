@@ -1,0 +1,40 @@
+﻿@model IEnumerable<QLAMNHAC.Models.Theloai>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/layout.cshtml";
+}
+<h2 class="text1" style="text-align:center">Danh sách thể loại</h2>
+<div class="wrap-left">
+    <h3 class="wrap-right"><a href="/TheLoai/them" class="text">Thêm thể loại mới</a></h3>
+</div>
+@if (TempData["ThongBao"] != null)
+{
+    <script language="javascript">
+       alert("@TempData["ThongBao"]");
+    </script>
+}
+
+<div class="table-wrapper">
+    <table class="fl-table">
+        <thead>
+            <tr>
+                <th>Thể Loại</th>
+                <th>Mô Tả</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach (var item in ViewBag.data)
+            {
+                <tr>
+                    <td>@item.tenTL</td>
+                    <td>@item.mota</td>
+                    <td>
+                        <a href="/TheLoai/sua/@item.Id">Sửa</a> |
+                        <a href="/TheLoai/xoa/@item.Id">Xóa</a>
+                    </td>
+                </tr>
+            }
+    </table>
+</div>
+

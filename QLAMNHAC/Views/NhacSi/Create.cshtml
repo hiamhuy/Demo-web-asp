@@ -1,0 +1,56 @@
+﻿@model QLAMNHAC.Models.Nhacsi
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/layout.cshtml";
+}
+
+<h2>Thêm nhạc sĩ</h2>
+@if (TempData["ThongBao"] != null)
+{
+    <script language="javascript" content="text/javascript">
+       alert("@TempData["ThongBao"]");
+    </script>
+}
+
+<div class="wrap">
+    @using (Html.BeginForm("add", "NhacSi"))
+    {
+        <table class="table">
+            <tr>
+                <td>
+                    Họ Tên:
+                </td>
+                <td>
+                    <p>@Html.EditorFor(model => model.tenNS)</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    Năm sinh:
+                </td>
+                <td>
+                    <p>@Html.EditorFor(model => model.namS)</p>
+
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    Quê Quán:
+                </td>
+                <td>
+                    <p>@Html.EditorFor(model => model.queQ)</p>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <input type="submit" value="Thêm mới" />
+
+                </td>
+            </tr>
+        </table>
+    }
+
+</div>
